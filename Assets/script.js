@@ -3,7 +3,7 @@ var currentDate = moment().format("MMMM Do YYYY, hA");
 $("#currentDay").text(currentDate);
 let allSaveBtns = $('.saveBtn')
 
-
+// save button function 
 $('.saveBtn').click(saveButton)
 function saveButton(){
     let btnTxt = $(this).siblings('.col-md-10').val()
@@ -13,7 +13,7 @@ function saveButton(){
 }
 
 
-
+// assigns item color to var
 function assignColor(time){
     var className = 'past'
     var currentHour = moment().hour()
@@ -24,6 +24,7 @@ function assignColor(time){
     }
     $('#hour-'+time).addClass(className)
 }
+// creates loop that scrolls through time, adds color, and saves text
 for(var i=9;i<=18;i++){
     assignColor(i)
     $("#"+i+"-text").val(localStorage.getItem("hour-"+i));
